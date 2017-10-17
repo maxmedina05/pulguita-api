@@ -1,0 +1,32 @@
+{
+  "name": "pulguita-api",
+  "version": "1.0.0",
+  "description": "La Pulguita API is a RESTFUL API made for a simple e-commerce using node js for a school project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxmedina05/pulguita-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "restful",
+    "api",
+    "mongoose"
+  ],
+  "author": "Max Medina & Juan Graciano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxmedina05/pulguita-api/issues"
+  },
+  "homepage": "https://github.com/maxmedina05/pulguita-api#readme",
+  "dependencies": {
+    "express": "4.15.4",
+    "dotenv": "4.0.0",
+    "body-parser": "1.18.0",
+    "method-override": "^2.3.9",
+    "mongoose": "4.11.11"
+  }
+}
