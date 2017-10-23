@@ -36,6 +36,7 @@ app.use(function(req, res, next) {
 
 // Routes
 app.use('/api/v1/products', require('./modules/product/product.module'));
+app.use('/api/v1/orders', require('./modules/order/order.module'));
 
 app.listen(PORT, function() {
   console.log(`Pothole Detector API listening on port ${PORT}`);
