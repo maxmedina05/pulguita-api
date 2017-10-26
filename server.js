@@ -1,13 +1,14 @@
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
 const app = express();
-
+app.use(morgan('dev'));
 // Database configuration
 mongoose.Promise = Promise;
 mongoose.connect(process.env.DB_CONN_STR, {
@@ -35,8 +36,12 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-app.use('/api/v1/products', require('./modules/product/product.module'));
-app.use('/api/v1/orders', require('./modules/order/order.module'));
+app.use('/api/v1/products', require('./components/product/product.module'));
+app.use('/api/v1/orders', require('./components/order/order.module'));
+
+app.use('/', function(req, res) {
+  res.send('LA PULGUITA API');
+})
 
 app.listen(PORT, function() {
   console.log(`Pothole Detector API listening on port ${PORT}`);
