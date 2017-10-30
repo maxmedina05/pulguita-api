@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const Item = new mongoose.Schema({
   productId: mongoose.Schema.Types.ObjectId,
-  quantity: Number
+  quantity: {
+    type: Number,
+    default: 1
+  }
 });
 
 const OrderSchema = new mongoose.Schema({
