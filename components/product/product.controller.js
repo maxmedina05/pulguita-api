@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 function getAll(req, res) {
   let skip = (req.query.skip) ? parseInt(req.query.skip) : 0;
   let limit = (req.query.limit) ? parseInt(req.query.limit) : 0;
+  let inStock = (req.query.inStock) ? 0 : -1;
   let name = (req.query.name) ? req.query.name : '.';
 
   Product.find(
     {
-      name: new RegExp(name, 'i')
+      name: new RegExp(name, 'i'),
+      inStock: { $gt: inStock }
     })
     .skip(skip)
     .limit(limit)
