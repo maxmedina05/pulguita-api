@@ -1,8 +1,16 @@
 const mongoose = require('mongoose');
 
+const Item = new mongoose.Schema({
+  productId: mongoose.Schema.Types.ObjectId,
+  quantity: Number
+});
+
 const OrderSchema = new mongoose.Schema({
-  products: [{id: Number, cant: Number}],
-  totalPrice: { type: Number, default: 0 }
+  products: [Item],
+  totalPrice: {
+    type: Number,
+    default: 0
+  }
 }, {
   timestamps: true
 });

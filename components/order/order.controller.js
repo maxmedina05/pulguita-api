@@ -21,10 +21,7 @@ function getAll(req, res) {
 
 function addOne(req, res) {
   if (_validateBody(req.body)) {
-    let newOrder = {
-    	products: req.body.products,
-  		totalPrice: req.body.totalPrice
-    };
+    let newOrder = new Order(req.body);
 
     newOrder.save()
       .then(result => {
@@ -118,9 +115,3 @@ module.exports = {
   removeOne: removeOne,
   removeAll: removeAll
 };
-
-
-
-
-
-
